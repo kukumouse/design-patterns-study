@@ -1,3 +1,0 @@
-C:/Users/jyong/CLionProjects/Staduy/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/jyong/CLionProjects/Staduy/cmake-build-debug/CMakeFiles/Staduy.dir
-C:/Users/jyong/CLionProjects/Staduy/cmake-build-debug/CMakeFiles/edit_cache.dir

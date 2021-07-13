@@ -7,6 +7,12 @@
 #include "Brigde/MobileMessagerBase.h"
 #include "Brigde/MessagerLite.h"
 #include "Brigde/MessagerPerfect.h"
+
+#include "Factory/TextFactory.h"
+#include "Factory/BinaryFactory.h"
+#include "Factory/TextSplitter.h"
+#include "Factory/BinarySplitter.h"
+
 using namespace std;
 
 int solution(int N) {
@@ -237,7 +243,7 @@ int main() {
     //cout << endl <<  "jump = " << solution4(1,v);
     **/
 
-
+    /** Brigde
     MessagerImp* m1 = new PcMessagerBase();
     Messager* n1 = new MessagerLite(m1);
     n1->SendMessage();
@@ -245,6 +251,20 @@ int main() {
     MessagerImp* m2 = new MobileMessagerBase();
     Messager* n2 = new MessagerLite(m2);
     n2->SendMessage();
+    **/
+
+    Factory* f1 = new BinaryFactory();
+    ISplitter* i1 = f1->createSplitter();
+    i1->split();
+    delete f1;
+    delete i1;
+
+    Factory* f2 = new TextFactory();
+    ISplitter* i2 = f2->createSplitter();
+    i2->split();
+    delete f2;
+    delete i2;
+
 
     return 0;
 }

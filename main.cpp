@@ -13,6 +13,16 @@
 #include "Factory/TextSplitter.h"
 #include "Factory/BinarySplitter.h"
 
+#include "AbstractFactory/IDBFactory.h"
+#include "AbstractFactory/MysqlDBFactory.h"
+#include "AbstractFactory/MysqlExcute.h"
+#include "AbstractFactory/MysqlCommand.h"
+#include "AbstractFactory/MysqlConnection.h"
+#include "AbstractFactory/SqlDBFactory.h"
+#include "AbstractFactory/SqlExcute.h"
+#include "AbstractFactory/SqlCommand.h"
+#include "AbstractFactory/SqlConnection.h"
+
 using namespace std;
 
 int solution(int N) {
@@ -253,6 +263,9 @@ int main() {
     n2->SendMessage();
     **/
 
+    /**
+     * Factory
+
     Factory* f1 = new BinaryFactory();
     ISplitter* i1 = f1->createSplitter();
     i1->split();
@@ -264,7 +277,25 @@ int main() {
     i2->split();
     delete f2;
     delete i2;
+    **/
+    /**
+     * AbstractFactory
+     */
+     IDBFactory* ab_factory = new MysqlDBFactory();
+     IDBCommand* mysql_command = ab_factory->createCommand();
+     IDBConnection* mysql_connection = ab_factory->createConnection();
+     IDBExcute* mysql_excute = ab_factory->createExcute();
+     mysql_command->command();
+     mysql_connection->connection();
+     mysql_excute->excute();
 
+    IDBFactory* ab_factory2 = new SqlDBFactory();
+    IDBCommand* sql_command = ab_factory2->createCommand();
+    IDBConnection* sql_connection = ab_factory2->createConnection();
+    IDBExcute* sql_excute = ab_factory2->createExcute();
+    sql_command->command();
+    sql_connection->connection();
+    sql_excute->excute();
 
     return 0;
 }
